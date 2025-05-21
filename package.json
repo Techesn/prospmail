@@ -1,0 +1,14 @@
+{
+  "name": "linkedin-scraper",
+  "version": "1.0.0",
+  "description": "Script to extract LinkedIn URLs and store data in MongoDB",
+  "main": "linkedin_scraper.js",
+  "scripts": {
+    "start": "node linkedin_scraper.js"
+  },
+  "dependencies": {
+    "csv-parser": "^3.0.0",
+    "mongodb": "^4.1.0",
+    "puppeteer": "^10.4.0"
+  }
+} 
