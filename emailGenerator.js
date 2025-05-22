@@ -1,3 +1,4 @@
+require('dotenv').config(); // Load environment variables
 const { OpenAI } = require('openai');
 const Groq = require('groq-sdk');
 const fs = require('fs'); // Required for future local prompt loading if needed, but not for embedded
@@ -53,7 +54,7 @@ const { agent_prompt, top_profil_description, core_emails, personalization_promp
 
 // Initialize Groq
 // IMPORTANT: Move this API key to an environment variable like GROQ_API_KEY for security!
-const GROQ_API_KEY = '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';
+const GROQ_API_KEY = process.env.GROQ_API_KEY;
 let groq;
 try {
   if (!GROQ_API_KEY) {

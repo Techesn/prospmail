@@ -1,3 +1,4 @@
+require('dotenv').config(); // Load environment variables
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const csv = require('csv-parser');
@@ -12,8 +13,8 @@ const {
 } = require('./emailGenerator.js');
 
 // --- START OF CONFIGURATION ---
-const LI_AT_COOKIE_VALUE = 'AQEFARABAAAAABV-N78AAAGWgMRzRgAAAZcSgoR-TgAAs3VybjpsaTplbnRlcnByaXNlQXV0aFRva2VuOmVKeGpaQUFDdG5jU21pQ2FvK2RPSlloV1NKbk94QWhpbEYreS9nUm1SSnQrM2MzQUNBQ3J0Z2oyXnVybjpsaTplbnRlcnByaXNlUHJvZmlsZToodXJuOmxpOmVudGVycHJpc2VBY2NvdW50OjExNjI2NzA0OSwxNDM0NDkyMDkpXnVybjpsaTptZW1iZXI6Njc5NzA5MzA1T3mLgJteDvy2DM7OalyRtf-2kuUjsUKQzyIsf8QhNA-kIv471ugOcCoEjsg1Ng181VjyqZM8JHU0jmuhhfk-lVAgsWYSu58QDSQNrXQa3YCE1GFvelbgLd82rRtYWnSVPxawvqOigbmvF2onBcVpsDRLWJVKYnlIC-LfoVF3O01oZ9D9ctGcfh7eUjqJEN1x0toTGA';
-const MONGODB_URI = 'mongodb://localhost:27017';
+const LI_AT_COOKIE_VALUE = process.env.LI_AT_COOKIE_VALUE;
+const MONGODB_URI = process.env.MONGODB_URI;
 const DATABASE_NAME = 'linkedin_data';
 const COLLECTION_NAME = 'profiles';
 const CSV_FILE_PATH = 'exportLGM.csv';
@@ -277,8 +278,6 @@ async function processCSVAndStoreInDB() {
 
 module.exports = { 
     processCSVAndStoreInDB, 
-    LI_AT_COOKIE_VALUE, 
-    MONGODB_URI, 
     DATABASE_NAME, 
     COLLECTION_NAME, 
     CSV_FILE_PATH 
